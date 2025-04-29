@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User, ShoppingCart, LogIn } from "lucide-react";
+import { Menu, X, User, ShoppingCart, LogIn, RefreshCw } from "lucide-react";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,6 +21,10 @@ const Header = () => {
           </Link>
           <Link to="/cases" className="text-sm font-medium text-white hover:text-gaming-accent transition-colors">
             Кейсы
+          </Link>
+          <Link to="/upgrades" className="text-sm font-medium text-white hover:text-gaming-accent transition-colors flex items-center gap-1">
+            Апгрейды
+            <span className="bg-gaming-accent text-xs px-1.5 py-0.5 rounded text-white">Новое</span>
           </Link>
           <Link to="/top-drops" className="text-sm font-medium text-white hover:text-gaming-accent transition-colors">
             Топ дропов
@@ -69,6 +73,14 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(false)}
               >
                 Кейсы
+              </Link>
+              <Link 
+                to="/upgrades" 
+                className="text-sm font-medium text-white hover:text-gaming-accent transition-colors flex items-center gap-1"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                Апгрейды
+                <span className="bg-gaming-accent text-xs px-1.5 py-0.5 rounded text-white">Новое</span>
               </Link>
               <Link 
                 to="/top-drops" 
