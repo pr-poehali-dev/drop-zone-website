@@ -40,12 +40,13 @@ const Index = () => {
       
       {/* Hero Section */}
       <section className="relative overflow-hidden py-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3')] bg-cover bg-center opacity-10"></div>
+        <div className="absolute inset-0 bg-[url('https://cdn.poehali.dev/files/8080c452-fd52-4d00-98a7-f0aeb0fe2758.jpg')] bg-cover bg-center opacity-80"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-gaming-secondary to-transparent"></div>
         <div className="container relative flex flex-col items-center text-center">
-          <h1 className="mb-4 text-4xl font-bold tracking-tight text-white sm:text-6xl neon-text">
+          <h1 className="mb-4 text-4xl font-bold tracking-tight text-gaming-light sm:text-6xl neon-text">
             DROP <span className="text-gaming-accent">ZONE</span>
           </h1>
-          <p className="mb-8 max-w-[42rem] text-muted-foreground">
+          <p className="mb-8 max-w-[42rem] text-white text-shadow">
             Открывай кейсы CS:GO, получай редкие скины и выводи их на свой аккаунт Steam. 
             Начни с бонуса за регистрацию!
           </p>
@@ -182,6 +183,7 @@ const Index = () => {
                 <ul className="space-y-2 text-sm">
                   <li><Link to="/" className="text-muted-foreground hover:text-gaming-accent">Главная</Link></li>
                   <li><Link to="/cases" className="text-muted-foreground hover:text-gaming-accent">Кейсы</Link></li>
+                  <li><Link to="/upgrades" className="text-muted-foreground hover:text-gaming-accent">Апгрейды</Link></li>
                   <li><Link to="/top-drops" className="text-muted-foreground hover:text-gaming-accent">Топ дропов</Link></li>
                 </ul>
               </div>
