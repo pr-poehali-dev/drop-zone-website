@@ -1,10 +1,17 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, User, ShoppingCart, LogIn, RefreshCw } from "lucide-react";
+import { Menu, X, ShoppingCart } from "lucide-react";
+import UserProfile from "./UserProfile";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate("/login");
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gaming-accent/20 bg-gaming-secondary/95 backdrop-blur supports-[backdrop-filter]:bg-gaming-secondary/60">
@@ -36,14 +43,13 @@ const Header = () => {
 
         {/* User Controls */}
         <div className="hidden md:flex items-center gap-4">
-          <Button variant="outline" size="sm" className="gap-2 border-gaming-accent text-white hover:bg-gaming-accent/20">
-            <ShoppingCart className="h-4 w-4" />
-            <span>Корзина</span>
-          </Button>
-          <Button variant="default" size="sm" className="gap-2 bg-gaming-accent hover:bg-gaming-accent/80">
-            <LogIn className="h-4 w-4" />
-            <span>Войти</span>
-          </Button>
+          {isLoggedIn && (
+            <Button variant="outline" size="sm" className="gap-2 border-gaming-accent text-white hover:bg-gaming-accent/20">
+              <ShoppingCart className="h-4 w-4" />
+              <span>Корзина</span>
+            </Button>
+          )}
+          <UserProfile isLoggedIn={isLoggedIn} onLogin={handleLogin} />
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -98,14 +104,13 @@ const Header = () => {
               </Link>
             </nav>
             <div className="flex flex-col space-y-2">
-              <Button variant="outline" size="sm" className="justify-center gap-2 border-gaming-accent text-white hover:bg-gaming-accent/20">
-                <ShoppingCart className="h-4 w-4" />
-                <span>Корзина</span>
-              </Button>
-              <Button variant="default" size="sm" className="justify-center gap-2 bg-gaming-accent hover:bg-gaming-accent/80">
-                <LogIn className="h-4 w-4" />
-                <span>Войти</span>
-              </Button>
+              {isLoggedIn && (
+                <Button variant="outline" size="sm" className="justify-center gap-2 border-gaming-accent text-white hover:bg-gaming-accent/20">
+                  <ShoppingCart className="h-4 w-4" />
+                  <span>Корзина</span>
+                </Button>
+              )}
+              <UserProfile isLoggedIn={isLoggedIn} onLogin={handleLogin} />
             </div>
           </div>
         </div>
